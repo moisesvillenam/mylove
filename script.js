@@ -15,25 +15,35 @@ function checkPassword() {
     alert("¡Contraseña correcta!");
     // Mostrar el contenido
     document.getElementById("contentContainer").style.display = "block";
-    cambiarFondo();
     // Iniciar el contador
     startCounter();
     // Cargar el álbum de fotos
     loadPhotoAlbum();
     // Agregar el fondo de video
+    addVideoBackground();
   } else {
     alert("Contraseña incorrecta. Inténtalo de nuevo.");
   }
 }
-function cambiarFondo() {
-  const body = document.body;
-  // Eliminar cualquier otro fondo
-  body.style.background = 'none';
-  // Agregar el fondo GIF
-  body.style.backgroundImage = 'url("video1.gif")'; // Reemplaza "fondo.gif" con la ruta de tu imagen GIF
-  body.style.backgroundSize = 'contain'; // Ajustar tamaño a contener
-  body.style.backgroundRepeat = 'no-repeat'; // Evitar repetición
-  body.style.backgroundPosition = 'center'; // Centrar el fondo
+
+function addVideoBackground() {
+  const content = document.getElementById('content');
+  if (!content) {
+    console.error("El elemento con el ID 'content' no fue encontrado.");
+    return;
+  }
+  const video = document.createElement('video');
+  video.autoplay = true;
+  video.muted = true;
+  video.loop = true;
+  video.id = 'videoBG';
+  
+  const source = document.createElement('source');
+  source.src = 'video.mp4';
+  source.type = 'video/mp4';
+  
+  video.appendChild(source);
+  content.appendChild(video);
 }
 
 // Las funciones startCounter() y loadPhotoAlbum() permanecen igual
@@ -75,6 +85,7 @@ function loadPhotoAlbum() {
     })
     .catch(error => console.error('Error al cargar el archivo JSON:', error));
 }
+
 
 
 
