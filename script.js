@@ -31,28 +31,9 @@ function cambiarFondo() {
   body.style.background = 'none';
   // Agregar el fondo GIF
   body.style.backgroundImage = 'url("video.gif")'; // Reemplaza "fondo.gif" con la ruta de tu imagen GIF
-  body.style.backgroundSize = 'cover';
-  body.style.backgroundPosition = 'center';
-}
-
-function addVideoBackground() {
-  const content = document.getElementById('content');
-  if (!content) {
-    console.error("El elemento con el ID 'content' no fue encontrado.");
-    return;
-  }
-  const video = document.createElement('video');
-  video.autoplay = true;
-  video.muted = true;
-  video.loop = true;
-  video.id = 'videoBG';
-  
-  const source = document.createElement('source');
-  source.src = 'video.gif';
-  source.type = 'video/gif';
-  
-  video.appendChild(source);
-  content.appendChild(video);
+  body.style.backgroundSize = 'contain'; // Ajustar tamaño a contener
+  body.style.backgroundRepeat = 'no-repeat'; // Evitar repetición
+  body.style.backgroundPosition = 'center'; // Centrar el fondo
 }
 
 // Las funciones startCounter() y loadPhotoAlbum() permanecen igual
