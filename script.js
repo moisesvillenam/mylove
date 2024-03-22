@@ -15,7 +15,7 @@ function checkPassword() {
     alert("¡Contraseña correcta!");
     // Mostrar el contenido
     document.getElementById("contentContainer").style.display = "block";
-    addVideoBackground();
+    cambiarFondo();
     // Iniciar el contador
     startCounter();
     // Cargar el álbum de fotos
@@ -24,6 +24,15 @@ function checkPassword() {
   } else {
     alert("Contraseña incorrecta. Inténtalo de nuevo.");
   }
+}
+function cambiarFondo() {
+  const body = document.body;
+  // Eliminar cualquier otro fondo
+  body.style.background = 'none';
+  // Agregar el fondo GIF
+  body.style.backgroundImage = 'url("video.gif")'; // Reemplaza "fondo.gif" con la ruta de tu imagen GIF
+  body.style.backgroundSize = 'cover';
+  body.style.backgroundPosition = 'center';
 }
 
 function addVideoBackground() {
@@ -39,8 +48,8 @@ function addVideoBackground() {
   video.id = 'videoBG';
   
   const source = document.createElement('source');
-  source.src = 'video.mp4';
-  source.type = 'video/mp4';
+  source.src = 'video.gif';
+  source.type = 'video/gif';
   
   video.appendChild(source);
   content.appendChild(video);
@@ -85,7 +94,6 @@ function loadPhotoAlbum() {
     })
     .catch(error => console.error('Error al cargar el archivo JSON:', error));
 }
-
 
 
 
