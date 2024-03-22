@@ -30,7 +30,7 @@ function cambiarFondo() {
   // Eliminar cualquier otro fondo
   body.style.background = 'none';
   // Agregar el fondo GIF
-  body.style.backgroundImage = 'url("video.gif")'; // Reemplaza "fondo.gif" con la ruta de tu imagen GIF
+  body.style.backgroundImage = 'url("video1.gif")'; // Reemplaza "fondo.gif" con la ruta de tu imagen GIF
   body.style.backgroundSize = 'contain'; // Ajustar tamaño a contener
   body.style.backgroundRepeat = 'no-repeat'; // Evitar repetición
   body.style.backgroundPosition = 'center'; // Centrar el fondo
